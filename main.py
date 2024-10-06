@@ -1,11 +1,3 @@
-if __name__ == "__main__":
-    from GUI.GUI_class import GUI
-    import streamlit as st
-    st.title("This is an old version of Smipps, that was developed in the specialization project")    
-    GUI()
-
-
-    
-
-
-    
+from pages.GUI.main_page import main_page_GUI
+if __name__ == "__main__":    
+    main_page_GUI()
