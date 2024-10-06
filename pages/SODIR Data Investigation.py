@@ -123,6 +123,8 @@ class SODIR_feature:
             elif poly_button and self.__field != 'No field chosen':
                 from Modules.SODIR_DATA.Sodir_data import makePolyPlot
                 sodir_obj.store_polyPlot(makePolyPlot(self.__field))
+                #making some chanfes
+                #so what the hell
 
             from Modules.SODIR_DATA.Sodir_data import plotPolyPlot
             polyFig = sodir_obj.getPolyPlot()
