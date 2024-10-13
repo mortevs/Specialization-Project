@@ -10,21 +10,21 @@ class Curve_fitting():
                 self._data_points = df_length
             empty_df = pd.DataFrame(data = 0, index=range(FC_length), columns=df.columns)
             if time[0] == 'Yearly':
-                self.__custom_index = [(df.index[-2]+i) for i in range(0, FC_length)]
+                self.__custom_index = [df.index[-2] + pd.DateOffset(years=1+i) for i in range(0, FC_length)]
             else:
                 prev_ind = df.index[-1]
-                def next_month_year(prev_ind):
-                    month, year = prev_ind.split(':')
-                    if int(month)<12:
-                        string = str(int(month)+1)+':'+year
-                        return string
-                    else:
-                        string = str(1)+':'+str((int(year)+1))
-                        return string
+                #def next_month_year(prev_ind):
+                    # month, year = prev_ind.split(':')
+                    # if int(month)<12:
+                    #     string = str(int(month)+1)+':'+year
+                    #     return string
+                    # else:
+                    #     string = str(1)+':'+str((int(year)+1))
+                    #     return string
                 self.__custom_index = [(prev_ind)]
                 for i in range(FC_length-1):
                      last_el = self.__custom_index[-1]
-                     self.__custom_index.append(next_month_year(last_el))
+                     self.__custom_index.append(last_el + pd.DateOffset(months = 1))
             empty_df.index = self.__custom_index
             for column in empty_df:
                 if time[0] == 'Yearly':
@@ -67,9 +67,3 @@ class Curve_fitting():
         average = np.average(np.array(lst))
         lst = [el for el in lst if el >= average * 0.5]
         return lst
-
-
-
-
-    
-        

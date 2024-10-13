@@ -16,8 +16,7 @@ class Sodir_prod():
 
     def updateFromDropDown(self, fieldName, time, align, company):
          self.__field, self.__time_frame, self._aligned, self.__company = fieldName, time, align, company
-
-
+#wtf
     def get_current_time_frame(self):
         return self.__time_frame
     def get_current_field(self):
@@ -66,7 +65,7 @@ class Sodir_prod():
         for key, value in company_licences.items():
             st.write(f"{key}: {value}")        
                 
-        #df = dP.add_cumulative_columns(df, columns_to_ignore = ["Watercut"])
+        combined_df = combined_df.loc[combined_df.index >= '2020-01-01']
         return combined_df
     
     
@@ -87,9 +86,9 @@ class Sodir_prod():
         st.write("Field ownerships:")
         for key, value in company_licences.items():
             st.write(f"{key}: {value}")        
-        #hola
-        st.write(combined_df)
-        #df = dP.add_cumulative_columns(df, columns_to_ignore = ["Watercut"])
+        
+        combined_df = combined_df.loc[combined_df.index >= '2020-01-01']
+
         return combined_df
      
     
@@ -385,6 +384,3 @@ def makePolyPlot(field):
    
 def plotPolyPlot(fig):
     st.plotly_chart(fig, use_container_width=True)
-
-
-    

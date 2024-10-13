@@ -4,8 +4,6 @@ import Data.getData as get
 from Data.dataProcessing import get_field_list_inc_No_field_chosen, get_all_company_list
 import time as t
 
-
-
 class SODIR_feature:
     def __init__(self):
         def make_pretty(styler):
