@@ -7,9 +7,9 @@ import time as t
 class SODIR_feature:
     def __init__(self):
         def make_pretty(styler):
+            #
             styler.set_properties(subset = None, **{'color': 'red'})
             return styler
-    
         try:
             self.__fieldnames = get_field_list_inc_No_field_chosen()
             self._companynames = get_all_company_list()
